@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Ionic App</title>
+
+  <base href="/" />
+
+  <meta name="color-scheme" content="light dark" />
+  <meta name="viewport"
+    content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="msapplication-tap-highlight" content="no" />
+
+  <link rel="icon" type="image/png" href="assets/icon/favicon.png" />
+
+  <!-- add to homescreen for ios -->
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+    crossorigin="anonymous"></script>
+
+</head>
+<style>
+  @font-face {
+    font-family: 'Sonny Gothic Condensed Light';
+    src: url('./assets/font/W Foundry - Sonny Gothic Condensed Light.otf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'Sonny Gothic Condensed Bold';
+    src: url('./assets/font/W Foundry - Sonny Gothic Condensed Bold.otf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  img {
+    width: 100%;
+  }
+
+  .row {
+    margin-right: 0px;
+    margin-left: 0px;
+  }
+
+  .backgroundImage {
+    filter: blur(4px) saturate(150%);
+    opacity: 0.7;
+    position: absolute;
+
+    /* max-width: 100%;
+    height: auto; */
+  }
+
+  .container {
+    background-color: black;
+    margin: 0px;
+    padding: 0px;
+  }
+
+  .container-fluid {
+    font-family: Sonny Gothic Condensed light;
+    /* padding-left: 70px;
+    padding-right: 70px; */
+    padding: 70px;
+  }
+
+  .card {
+    position: absolute;
+    width: 100%;
+  }
+
+  .cardPrice {
+    font-family: Sonny Gothic Condensed Bold;
+    background-color: white;
+    padding: 0px 10px 0px 10px;
+    margin-top: -20px;
+    margin-right: 5px;
+    height: 50px;
+    color: midnightblue;
+    font-weight: bolder;
+  }
+
+  .Price {
+    font-size: xx-large;
+    display: inline-block;
+    margin-bottom: 0px;
+    margin-top: 0px;
+  }
+
+  .PriceCent {
+    display: inline-block;
+    margin-left: -5px;
+  }
+
+  .cardPub {
+    background-image: url('./assets/toy4m.png');
+    background-repeat: no-repeat;
+    width: 800px;
+    height: 500px;
+    background-size: contain;
+  }
+
+  .textCard {
+    z-index: 1;
+    margin-top: 30px;
+    color: white;
+  }
+
+  .textCardBody {
+    font-family: Sonny Gothic Condensed Bold;
+    font-size: xx-large;
+    line-height: 15px;
+    margin-top: 25px;
+  }
+
+  .soldeCard {
+    z-index: 2;
+    font-family: Sonny Gothic Condensed Light;
+    position: relative;
+  }
+
+  .underline {
+    text-decoration: underline;
+    line-height: 0px;
+    font-weight: 700;
+  }
+
+  .underlines {
+    width: 140px;
+    height: 100px;
+    margin-top: 9px;
+    margin-right: 15px;
+    font-size: x-large;
+    color: orangered;
+    background-color: white;
+    font-weight: 700;
+    text-align: center;
+    z-index: 2;
+    right: 0;
+    position: absolute;
+  }
+
+  .lineThrough {
+    text-decoration: line-through;
+    font-weight: bold;
+  }
+
+  .buttonCard {
+    width: 490px;
+    line-height: 55px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .btn-primary {
+    color: #fff;
+    font-weight: bold;
+    width: 145px;
+    height: 55px;
+    background-color: midnightblue;
+    border-color: midnightblue;
+  }
+
+  .btn-outline-secondary {
+    color: white;
+    font-weight: bold;
+    width: 245px;
+    height: 55px;
+    border-color: white;
+  }
+
+  .badge {
+    border: solid 1px gainsboro;
+    width: 78px;
+    height: 33px;
+    margin: 5px;
+    min-width: 85px;
+    padding: 10px;
+    color: midnightblue;
+  }
+
+  .module {
+
+    width: 100%;
+    height: 100%;
+    margin: 10px 27px 10px 0px;
+  }
+
+  .imgCardToy {
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(./assets/toy4m.png);
+    width: 100%;
+    height: 100%;
+    filter: blur(4px) saturate(1.5);
+
+    position: absolute;
+    background-size: cover;
+  }
+
+  .imgToy {
+    height: 280px;
+    width: auto;
+    z-index: 1;
+    position: absolute;
+    right: 0;
+    margin-top: 15px;
+    filter: blur(1px) saturate(1.2);
+  }
+
+  .imgCardBflo {
+    background: url(./assets/bflo.png);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-size: cover;
+  }
+
+  .textBflo {
+    margin-bottom: 70px;
+    font-size: medium;
+    margin-top: 30px;
+  }
+
+  .top h2 {
+    color: white;
+    margin: 0;
+    padding: 20px;
+  }
+
+  .cap p {
+    padding: 20px;
+    color: white;
+    font: 12px Monaco, Mono-Space;
+    margin: 0;
+  }
+
+
+  /* For overriding box-shadow and other default 
+       effects of modal and it's children */
+  .modal,
+  .modal-content,
+  .modal-header,
+  .modal-footer {
+    background-color: transparent;
+    border: 0px;
+    color: white;
+
+    /* Disable box shadow for different browsers */
+    -webkit-box-shadow: 0px 0px 0px 0px rgba(255, 255, 255, 1);
+    -moz-box-shadow: 0px 0px 0px 0px rgba(255, 255, 255, 1);
+    box-shadow: 0px 0px 0px 0px rgba(255, 255, 255, 1);
+  }
+
+  .modal-dialog {
+    width: 100%;
+    height: 50%;
+    margin-top: 8px;
+  }
+
+  .close {
+    color: white;
+    opacity: 0.8;
+  }
+
+  .modal-body {
+    height: 75%;
+  }
+
+  @media (max-width: 375px) {
+    .imgCardBflo {
+      background-size: cover;
+    }
+
+    .textBflo {
+      margin-bottom: Opx;
+      font-size: medium;
+      margin-top: 0px;
+    }
+  }
+
+  /* Media queries */
+  @media (max-width : 415px) {
+
+    .container-fluid {
+      padding-left: 20px;
+      padding-right: 20px;
+      padding-top: 20px;
+    }
+
+    .imgCardBflo {
+      background-size: cover;
+      background-repeat: round;
+    }
+
+    .textBflo {
+      margin-bottom: 0px;
+      font-size: small;
+      margin-top: 0px;
+    }
+
+    .cardPrice {
+      height: 38px;
+    }
+
+    .textCardBody {
+      font-family: Sonny Gothic Condensed Bold;
+      font-size: smaller;
+      line-height: 0px;
+      margin-top: 0px;
+    }
+
+    .underlines {
+      display: none
+    }
+
+  }
+
+  @media (max-width : 845px) {
+
+    .container-fluid {
+      padding-left: 20px;
+      padding-top: 20px;
+      padding-right: 20px;
+    }
+
+    .cardBox {
+      padding: inherit;
+      padding-top: 25px;
+    }
+
+    .cardPrice {
+      height: 38px;
+    }
+
+    .Price {
+      font-size: x-large;
+    }
+
+    .module {
+      margin: 0px;
+    }
+
+    .scroll {
+      overflow: scroll;
+    }
+
+    .textCardBody {
+      font-family: Sonny Gothic Condensed Bold;
+      font-size: medium;
+      line-height: 0px;
+      margin-top: 0px;
+    }
+
+    .underlines {
+      display: none
+    }
+
+    .buttonCard {
+      display: none;
+    }
+
+    .imgToy {
+      height: 160px;
+      filter: blur(0px);
+      padding-right: inherit;
+    }
+
+    .textCard {
+      z-index: 1;
+      margin-top: 20px;
+      color: white;
+    }
+
+  }
+
+  @media (max-width: 1200px) {
+    .cardBox {
+      padding: inherit;
+      padding-top: 25px;
+    }
+  }
+</style>
+
+<body>
+  <div class="container-fluid">
+    <p class="text" style="font-size: medium; color: midnightblue;">── à ne pas rater</p>
+
+    <div class="row">
+      <div class="col-xl-3 col-lg-4 col-md-5 col-sm-5" style="font-family: Sonny Gothic Condensed Bold; padding: 0px;">
+        <p style="color: midnightblue; font-size: 35px;">chez Cultura</p>
+      </div>
+      <div class="col-xl-auto col-lg-auto col-md-auto col-sm-auto scroll"
+        style="align-self: center; padding: 0px; display: flex;">
+        <span class="badge badge-pill badge-white">tag</span>
+        <span class="badge badge-pill badge-white">tag2</span>
+        <span class="badge badge-pill badge-white">tag3</span>
+        <span class="badge badge-pill badge-white">tag4</span>
+        <span class="badge badge-pill badge-white">tag5</span>
+        <span class="badge badge-pill badge-white">tag6</span>
+        <span class="badge badge-pill badge-white">tag7</span>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-xl-6 col-lg-12 col-sm-12 col-md-12" style="overflow: hidden; margin: 0px; padding: 0px;">
+        <div class="imgCardToy"></div>
+        <div class="module">
+          <div class="row">
+            <div class="textCard col-6">
+              <p class="underline">NOUVEAUTÉ </p>
+              <p style="font-weight: 600; line-height: 20px;">à partir du 25 décembre</p>
+              <div class="textCardBody">
+                <p>Toy Story 4 Toy</p>
+                <p>Story 4</p>
+              </div>
+              <p style="margin-bottom: 20px; font-size: small;">à partir de</p>
+              <div class="row" style="width: max-content;">
+                <div class="cardPrice">
+                  <p class="Price">15</p>
+                  <p class="PriceCent">,90€</p>
+                </div>
+                <div>
+                  <p class="lineThrough"> 16,90€</p>
+                </div>
+              </div>
+              <div class="buttonCard">
+                <div>
+                  <button type="button" class="btn btn-primary">j'en profite</button>
+                </div>
+                <div>
+                  <button type="button" class="btn btn-outline-secondary">voir toutes les nouveautés</button>
+                </div>
+                <p style="margin-top: 20px; margin-bottom: 0px; font-size: smaller;">conditions*</p>
+              </div>
+            </div>
+            <div class="soldeCard col-6">
+
+              <div class="underlines">
+                <p style="font-size: smaller; padding-top: 15px;">jusqu'à</p>
+                <p style="margin-top: -25px; font-size: 38px; font-family: Sonny Gothic Condensed Bold;">
+                  -50%</p>
+              </div>
+              <img class="imgToy" src="./assets/toy4DVD.png" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-6 col-lg-12 col-sm-12 col-md-12 cardBox">
+        <div class="imgCardBflo"></div>
+        <div class="module">
+          <div class="row">
+            <div class="textCard col-6" style="color: midnightblue;">
+              <p class="underline">DÉDICACE</p>
+              <p style="font-weight: 600; line-height: 20px; font-size: medium;">Vendredi 15 juin à 14h30</p>
+              <div class="textCardBody">
+                <p>Bigflo & Oli</p>
+              </div>
+              <p class="textBflo">Venez les rencontrer, une surprise
+                à
+                la clé !</p>
+              <div class="buttonCard">
+                <div>
+                  <button type="button" class="btn btn-primary">en savoir plus</button>
+                </div>
+              </div>
+            </div>
+            <div class="soldeCard col-6">
+              <div class="underlines">
+                <p style="font-size: smaller; padding-top: 15px;">jusqu'à</p>
+                <p style="margin-top: -25px; font-size: -webkit-xxx-large; font-family: Sonny Gothic Condensed Bold;">
+                  -50%</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+      aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            ...
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <script>
+
+    // Taking Array of Image Addresses  
+    // Suppose it as information from the server 
+    // Modify this for different address 
+    //     a = [
+
+    //       './assets/toy4m.png',
+    //       './assets/toy4m.png',
+    //     ];
+    //     var x = 0;
+    //     for (var i = 0; x < a.length; i++) {
+    //       var cardPub = "<div class='row'>";
+    //       for (var j = 0; j < 2 && x < a.length; j++) {
+    //         cardPub += ` 
+    //     <div class="contain-img col-lg-6"> 
+    //       <div class="container">
+    //       <div class="row">
+    //     <div class="textCard col">
+    //       <p class="underline">NOUVEAUTÉ </p>
+    //       <p>à partir du 25 décembre</p>
+    //         <p >Toy Story 4 Toy</p>
+    //       <p>Story 4</p>
+    //         <p>à partir de</p>
+    // </div>
+    // <div class="soldeCard" col>
+    //   <p class="underlines">NOUVEAUTÉ </p>
+
+    // </div>
+    // </div>
+    //         <img class="backgroundImage img-responsive" src=` + a[x++] + `>
+
+    //         </div>
+    //     </div> 
+    //     `;
+    //       }
+    //       cardPub += '</div>';
+    //       Card(cardPub);
+    //     }
+
+    //     // Function to append the data 
+    //     function Card(x) {
+    //       $('#gallery').html(function (i, original_html) {
+    //         return (original_html + x);
+    //       });
+    //     }
+
+    // For Image Modal 
+    $(document).on('click', 'img', function () {
+      imgAddr = $(this).attr('src');
+      data = "<center>      <p>Modal<p/><img src=" + imgAddr + " width='100%'>";
+      $('#myModal').find('.modal-body').html(data);
+      $('#myModal').modal();
+    }); 
+  </script>
+
+</body>
+
+</html>
